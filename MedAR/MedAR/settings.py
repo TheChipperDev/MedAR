@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,15 +21,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-b6dvr)k%@44-g9#02)tbtlh3qjiafxbz0g*g_y4yb7d0og17^e'
+#SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = "foo"
 
 # SECURITY WARNING: don't run with debug turned on in production!
+#DEBUG = int(os.environ.get("DEBUG", default=0))
 DEBUG = True
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [] 
+#ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 
 
 # Application definition
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -37,6 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'hospital',
+    'images',
+    'user_profile',
 ]
 
 MIDDLEWARE = [
