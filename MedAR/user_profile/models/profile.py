@@ -10,8 +10,8 @@ class Profile(models.Model):
     """Profile model for the Model Table"""
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     medical_notes = models.TextField(blank=True)
-    primary_physician = models.ForeignKey(Doctor, on_delete=models.CASCADE)
-    primary_hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE)
+    primary_physician = models.ForeignKey(Doctor, on_delete=models.CASCADE, blank=True, null=True)
+    primary_hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE, blank=True, null=True)
     adddress = models.CharField(max_length=100, blank=True, default=' ')
     birth_date = models.DateField(null=True, blank=True)
 
