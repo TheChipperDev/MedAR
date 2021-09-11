@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from hospital.models import Hospital
+from hospital.models import Hospital, Doctor
 
 class HospitalSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Doctor
+        model = Hospital
         fields = ['name', 'location']
