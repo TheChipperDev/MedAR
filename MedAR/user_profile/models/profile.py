@@ -15,6 +15,10 @@ class Profile(models.Model):
     adddress = models.CharField(max_length=100, blank=True, default=' ')
     birth_date = models.DateField(null=True, blank=True)
 
+    def __str__(self):
+        return self.user.first_name + ' ' + self.user.last_name
+
+        
     class Meta:
         """Meta Class for the Profile Model"""
         app_label = 'user_profile'
